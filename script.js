@@ -15,9 +15,12 @@ fetch("flashcardSet.json")
     .then(data => {
         for(let card of data.flashcardSet.cards){
             cardArray.push(card);
-        }     
+        } 
+    let x = Math.floor((Math.random() * 10));
+    let cardNow = cardArray[x];
+    questionText.innerHTML = cardNow.question;
+    answerText.innerHTML = cardNow.answer;    
 })
-
 
 
 function flipcard(){
