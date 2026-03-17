@@ -9,6 +9,15 @@ const answerText = document.getElementById('answer-text');
 const masteredCount = document.getElementById('mastered-count');
 const remainingCount= document.getElementById('remaining-count');
 
+const cardArray = [];
+fetch("flashcardSet.json")
+    .then(response => response.json())
+    .then(data => {
+        for(let card of data.flashcardSet.cards){
+            cardArray.push(card);
+        }     
+})
+
 
 
 function flipcard(){
