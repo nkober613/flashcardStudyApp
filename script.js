@@ -12,7 +12,7 @@ const remainingCount= document.getElementById('remaining-count');
 
 
 function flipcard(){
-
+    flashcard.classList.toggle("active");
 }
 
 
@@ -24,3 +24,5 @@ function showNextCard(){
 function markAsKnown(){
     
 }
+
+flashcard.addEventListener('click',flipcard);
