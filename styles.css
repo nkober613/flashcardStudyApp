@@ -3,6 +3,7 @@
     --card-color:#ffffff;
     --accent-color: #4f46e5;
     --text-color: #1e293b;
+   
 }
 
 body{
@@ -20,6 +21,8 @@ body{
     width: 600px;
     height: 300px;
     perspective: 1000px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .flashcard-inner{
@@ -52,4 +55,56 @@ body{
 }
 .flashcard.active .flashcard-inner{
     transform: rotateY(180deg);
+}
+
+
+header{
+    background-color: var(--accent-color);
+    padding: 40px;
+    width: 100%;
+    color:var(--text-color);
+    text-align: center;
+    margin-top: 0;
+}
+.btn{
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    padding: 10px 24px;
+    margin-left: 25px;
+    border: none;
+}
+.btn:hover{
+    background-color: #4b38b3;
+    transform: translateY(-2px);
+}
+.btn:active{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-color: #0c075e;
+    background-color: #ffffff;
+    transform: translateY(4px);
+}
+
+
+#answer{
+    font-size: 30px;
+    font-weight: bold; 
+}
+
+#question{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#answer-text{
+    font-size: 50px;
+}
+
+#question-text{
+    font-size: 50px;
+
+}
+#progress{
+    font-weight: bold;
+    font-size: 25px;
 }
