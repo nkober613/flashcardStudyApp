@@ -1,3 +1,5 @@
+let mastered = 0;
+let currentCardIndex = null;
 
 const flashcard = document.getElementById('flashcard');
 const nextBtn = document.getElementById('next-btn');
@@ -16,9 +18,14 @@ fetch("flashcardSet.json")
         for(let card of data.flashcardSet.cards){
             cardArray.push(card);
         } 
+        updateCounts();
     showNextCard();    
 })
 
+function updateCounts(){
+    masteredCount.textContent = mastered;
+    remainingCount.textContent = cardArray.length;
+}
 
 function flipcard(){
     flashcard.classList.toggle("active");
@@ -26,17 +33,28 @@ function flipcard(){
 
 
 function showNextCard(){
-    let x = Math.floor((Math.random() * 10));
+    if(cardArray.length === 0){
+        questionText.innerHTML = "All cards mastered!";
+        answerText.innerHTML = "";
+        return;
+    }
+    let x = Math.floor(Math.random() * cardArray.length);
+    currentCardIndex = x;
     let cardNow = cardArray[x];
+
     questionText.innerHTML = cardNow.question;
     answerText.innerHTML = cardNow.answer;
-
 }
 
 
 function markAsKnown(){
-    
+    if(cardArray.length === 0) return;
+    cardArray.splice(currentCardIndex, 1);
+    mastered++;
+    updateCounts();
+    showNextCard();
 }
 
 flashcard.addEventListener('click',flipcard);
 nextBtn.addEventListener('click',showNextCard);
+knownBtn.addEventListener('click', markAsKnown);
