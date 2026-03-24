@@ -15,9 +15,9 @@ fetch("flashcardSet.json")
     .then(data => {
         for(let card of data.flashcardSet.cards){
             cardArray.push(card);
-        }     
+        } 
+    showNextCard();    
 })
-
 
 
 function flipcard(){
@@ -26,6 +26,10 @@ function flipcard(){
 
 
 function showNextCard(){
+    let x = Math.floor((Math.random() * 10));
+    let cardNow = cardArray[x];
+    questionText.innerHTML = cardNow.question;
+    answerText.innerHTML = cardNow.answer;
 
 }
 
@@ -35,3 +39,4 @@ function markAsKnown(){
 }
 
 flashcard.addEventListener('click',flipcard);
+nextBtn.addEventListener('click',showNextCard);
