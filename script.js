@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const flashcard = document.getElementById('flashcard');
     const nextBtn = document.getElementById('next-btn');
     const knownBtn = document.getElementById('known-btn');
-    const restart = document.getElementById('restart')
+    const restart = document.getElementById('restart');
     const questionText = document.getElementById('question-text');
     const answerText = document.getElementById('answer-text');
  
